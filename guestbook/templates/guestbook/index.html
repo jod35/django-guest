@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'guestbook/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'guestbook/main.css'%}">
+    <title>GuestBook</title>
+</head>
+<body>
+  <div class="container">
+    <center>
+        <div class="jumbotron">
+            <h1>GuestBook</h1>
+        <a href="{% url 'sign'%}">Sign the GuestBook</a>
+        </div>
+       </center>
+       {% for c in comments %}
+           <h3>{{ c.name }}</h3>
+           <div class="jumbotron">
+             {{c.comment}}
+           </div>
+       {% endfor %}
+       {{ form }}
+  </div>
+</body>
+</html>

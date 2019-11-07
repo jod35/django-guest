@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'guestbook/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'guestbook/main.css'%}">
+    <title>Sign The GuestBook</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <center>
+                    <h1>Sign The GuestBook</h1>
+                    <a href="{% url 'index'%}">View The Comments</a>
+            </center>
+        </div>
+        <center>
+            <form action="{% url 'sign' %}" method="post">
+              {%csrf_token%}
+              <p>Your Name</p>
+              {{ form.name }}
+              <p>Your Comment</p>
+              {{ form.comment }}
+              <br>
+              <input type="submit" value="Sign" class="btn btn-primary">
+            </form>
+          </center>
+    </div>
+</body>
+</html>
